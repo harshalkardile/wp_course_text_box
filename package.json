@@ -19,13 +19,7 @@
 	"stylelint": {
 		"extends": "@wordpress/stylelint-config/scss"
 	},
-	"lint-staged": {
-		"*.js": [
-			"wp-scripts lint-js",
-			"wp-scripts format"
-		],
-		"*.scss": "npx stylelint --fix"
-	},
+
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^15.1.0",
 		"@wordpress/prettier-config": "^2.24.0",
