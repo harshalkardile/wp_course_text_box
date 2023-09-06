@@ -16,8 +16,7 @@ export default function save( { attributes } ) {
 		[ textClass ]: textClass,
 		[ backgroundClass ]: backgroundClass,
 	} );
-	console.log(classes)
-
+	
 	return (
 		<RichText.Content
 		{ ...useBlockProps.save( {

@@ -240,7 +240,6 @@ function save({
     [textClass]: textClass,
     [backgroundClass]: backgroundClass
   });
-  console.log(classes);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
       className: classes,
