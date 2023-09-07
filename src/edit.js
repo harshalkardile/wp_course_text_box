@@ -7,7 +7,11 @@ import {
 	InspectorControls,
 } from '@wordpress/block-editor';
 //eslint-disable-next-line
-import { __experimentalBoxControl as BoxControl, PanelBody, RangeControl } from '@wordpress/components';
+import {
+	__experimentalBoxControl as BoxControl,
+	PanelBody,
+	RangeControl,
+} from '@wordpress/components';
 
 import classnames from 'classnames';
 import './editor.scss';
@@ -26,48 +30,50 @@ export default function Edit( props ) {
 		setAttributes( { text: newText } );
 	};
 
-	const onChnageShadowOpacity = (newShadowOpacity) => {
-		setAttributes({ ShadowOpacity: newShadowOpacity })
-	}
+	const onChnageShadowOpacity = ( newShadowOpacity ) => {
+		setAttributes( { ShadowOpacity: newShadowOpacity } );
+	};
 	const toggleShadow = () => {
-		setAttributes({ shadow : !shadow});
-	}
-	const classes = classnames(`text-box-align-${ textAlignment }`,{
+		setAttributes( { shadow: ! shadow } );
+	};
+	const classes = classnames( `text-box-align-${ textAlignment }`, {
 		'has-shadow': shadow,
-		[`shadow-opacity-${ShadowOpacity}`]: shadow && ShadowOpacity,
-	});
+		[ `shadow-opacity-${ ShadowOpacity }` ]: shadow && ShadowOpacity,
+	} );
 
 	return (
 		<>
-		<InspectorControls>
-			{shadow && (
-			<PanelBody 
-			title={ __("Shadow Setting", 'text-box')}
+			<InspectorControls>
+				{ shadow && (
+					<PanelBody title={ __( 'Shadow Setting', 'text-box' ) }>
+						<RangeControl
+							label={ __( 'Shadow Opacity', 'text-box' ) }
+							value={ ShadowOpacity }
+							min={ 10 }
+							max={ 40 }
+							step={ 10 }
+							onChange={ onChnageShadowOpacity }
+						/>
+					</PanelBody>
+				) }
+			</InspectorControls>
+
+			<BlockControls
+				controls={ [
+					{
+						icon: 'admin-page',
+						title: __( 'Shadow', 'text-box' ),
+						onClick: toggleShadow,
+						isActive: shadow,
+					},
+				] }
 			>
-				<RangeControl label={ __("Shadow Opacity", 'text-box')}
-				value={ShadowOpacity}
-				min={10}
-				max={40}
-				step={10}
-				onChange={onChnageShadowOpacity}
-				/>
-			</PanelBody>)}
-		</InspectorControls>
-		
-			<BlockControls controls={[
-				{
-					icon :"admin-page",
-					title: __("Shadow", 'text-box'),
-					onClick: toggleShadow,
-					isActive:shadow,
-				}
-			]}>
 				<AlignmentToolbar
 					value={ textAlignment }
 					onChange={ onChangeAlignment }
 				/>
 			</BlockControls>
-			
+
 			<RichText
 				{ ...useBlockProps( {
 					className: classes,
@@ -78,17 +84,9 @@ export default function Edit( props ) {
 				tagName="p"
 				allowedFormats={ [] }
 			/>
-		
 		</>
 	);
 }
-
-
-
-
-
-
-
 
 //  Tried followings*********
 //  <TextControl
@@ -112,8 +110,7 @@ export default function Edit( props ) {
 // 					<ColorPicker
 // 						color={ 'F03' }
 // 						onChangeComplete={ ( v ) => console.log( v ) }
-// 					/> 
-
+// 					/>
 
 //  <BlockControls group="inline">
 // 				<p>Inline Controls</p>
@@ -169,6 +166,6 @@ export default function Edit( props ) {
 // 							] }
 // 						/>
 // 					</ToolbarGroup>
-// 				) } 
-				
+// 				) }
+
 // 			</BlockControls>

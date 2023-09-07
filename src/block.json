@@ -5,7 +5,7 @@
 	"category": "text",
 	"icon": "text-page",
 	"description": "A box of text.",
-	"keywords": ["text", "paragraph", "box"],
+	"keywords": [ "text", "paragraph", "box" ],
 	"supports": {
 		"html": false,
 		"color": {
@@ -17,14 +17,17 @@
 			"padding": true
 		}
 	},
-	"styles": [{
-		"name": "squared",
-		"label": "Squared",
-		"isDefault": true
-	}, {
-		"name": "rounded",
-		"label": "Rounded"
-	}],
+	"styles": [
+		{
+			"name": "squared",
+			"label": "Squared",
+			"isDefault": true
+		},
+		{
+			"name": "rounded",
+			"label": "Rounded"
+		}
+	],
 	"example": {
 		"attributes": {
 			"text": "This is some text!",
@@ -46,17 +49,16 @@
 			"type": "string",
 			"default": "left"
 		},
-		"shadow":{
-			"type":"boolean",
-			"default":false
+		"shadow": {
+			"type": "boolean",
+			"default": false
 		},
-		"shadowOpacity":{
-			"type" :"number",
+		"shadowOpacity": {
+			"type": "number",
 			"default": 30
 		},
 		"backgroundColor": {
 			"type": "string"
-			
 		},
 		"textColor": {
 			"type": "string",
@@ -65,16 +67,20 @@
 		"gradient": {
 			"type": "string"
 		},
-		"style":{
+		"style": {
 			"type": "object",
-			"default":{
-				"color":{
-					"background":"#f03"
+			"default": {
+				"color": {
+					"background": "#f03"
 				},
-				"spacing":{
-					"padding":{"top":"50px","bottom":"50px","left":"50px","right":"50px"}
+				"spacing": {
+					"padding": {
+						"top": "50px",
+						"bottom": "50px",
+						"left": "50px",
+						"right": "50px"
+					}
 				}
-
 			}
 		}
 	}
