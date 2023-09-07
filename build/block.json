@@ -12,7 +12,14 @@
   ],
   "supports": {
     "html": false,
-    "color": true
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true
+    },
+    "spacing": {
+      "padding": true
+    }
   },
   "textdomain": "text-box",
   "editorScript": "file:./index.js",
@@ -35,11 +42,24 @@
     "textColor": {
       "type": "string"
     },
-    "customBackgroundColor": {
+    "gradient": {
       "type": "string"
     },
-    "customTextColor": {
-      "type": "string"
+    "style": {
+      "type": "object",
+      "default": {
+        "color": {
+          "background": "#f03"
+        },
+        "spacing": {
+          "padding": {
+            "top": "50px",
+            "right": "50px",
+            "bottom": "50px",
+            "left": "50px"
+          }
+        }
+      }
     }
   }
 }

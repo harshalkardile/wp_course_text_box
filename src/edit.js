@@ -1,17 +1,13 @@
 import { __ } from '@wordpress/i18n';
 
-import { useBlockProps, RichText, BlockControls, InspectorControls, AlignmentToolbar, PanelColorSettings, ContrastChecker, withColors } from '@wordpress/block-editor';
+import { useBlockProps,RichText, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 // import {ToolbarGroup, ToolbarButton, ToolbarDropdownMenu } from '@wordpress/components'
 // import { PanelBody, TextControl, TextareaControl, ToggleControl, AnglePickerControl, ColorPicker, ColorPalette } from '@wordpress/components';
 import './editor.scss';
- function Edit(props) {
+ export default function Edit(props) {
 	const {
 		attributes,
 		setAttributes,
-		backgroundColor,
-		textColor,
-		setBackgroundColor,
-		setTextColor,
 	} = props;
 	const { text, alignment } = attributes;
 	const onChangeAlignment = ( newAlignment ) => {
@@ -21,34 +17,8 @@ import './editor.scss';
 		setAttributes( { text: newText } );
 	};
 
-	
 	return (
 		<>
-			<InspectorControls>
-				<PanelColorSettings
-					title={ __( 'Color Settings', 'text-box' ) }
-					icon="admin-appearance"
-					initialOpen
-					disableCustomColors={ false }
-					colorSettings={ [
-						{
-							value: backgroundColor.color,
-							onChange: setBackgroundColor,
-							label: __( 'Background Color', 'text-box' ),
-						},
-						{
-							value: textColor.color,
-							onChange: setTextColor,
-							label: __( 'Text Color', 'text-box' ),
-						},
-					] }
-				>
-					<ContrastChecker
-						textColor={ textColor.color }
-						backgroundColor={ backgroundColor.color }
-					/>
-				</PanelColorSettings>
-			</InspectorControls>
 			<BlockControls>
 				<AlignmentToolbar
 					value={ alignment }
@@ -60,10 +30,6 @@ import './editor.scss';
 		<RichText
 				{ ...useBlockProps( {
 					className: `text-box-align-${ alignment }`,
-					style: {
-						backgroundColor: backgroundColor.color,
-						color: textColor.color,
-					},
 				} ) }
 				onChange={ onChangeText }
 				value={ text }
@@ -76,10 +42,7 @@ import './editor.scss';
 
 }
 
-export default withColors( {
-	backgroundColor: 'backgroundColor',
-	textColor: 'color',
-} )( Edit );
+
 
 
 
