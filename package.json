@@ -26,6 +26,7 @@
 		"@wordpress/stylelint-config": "^21.24.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^14.0.1",
+		"lodash": "^4.17.21",
 		"stylelint": "^15.10.3"
 	},
 	"dependencies": {

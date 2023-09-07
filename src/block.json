@@ -1,10 +1,10 @@
 {
 	"apiVersion": 3,
 	"name": "blocks-course/text-box",
-	"title": "Text box",
+	"title": "Text Box",
 	"category": "text",
 	"icon": "text-page",
-	"description": "A box of text",
+	"description": "A box of text.",
 	"keywords": ["text", "paragraph", "box"],
 	"supports": {
 		"html": false,
@@ -13,45 +13,69 @@
 			"text": true,
 			"gradients": true
 		},
-		"spacing":{
+		"spacing": {
 			"padding": true
+		}
+	},
+	"styles": [{
+		"name": "squared",
+		"label": "Squared",
+		"isDefault": true
+	}, {
+		"name": "rounded",
+		"label": "Rounded"
+	}],
+	"example": {
+		"attributes": {
+			"text": "This is some text!",
+			"gradient": "red-to-blue",
+			"shadow": true
 		}
 	},
 	"textdomain": "text-box",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js",
-	"attributes":{
-		"text":{
-			"type":"string",
+	"attributes": {
+		"text": {
+			"type": "string",
 			"source": "html",
-			"selector": "h4"
+			"selector": "p"
 		},
-		"alignment":{
-			"type":"string",
-			"default":"left" 
+		"textAlignmen": {
+			"type": "string",
+			"default": "left"
 		},
-		"backgroundColor":{
-			"type":"string"
+		"shadow":{
+			"type":"boolean",
+			"default":false
 		},
-		"textColor":{
-			"type":"string"
+		"shadowOpacity":{
+			"type" :"number",
+			"default": 30
+		},
+		"backgroundColor": {
+			"type": "string"
+			
+		},
+		"textColor": {
+			"type": "string",
+			"default": "very-light-grey"
 		},
 		"gradient": {
 			"type": "string"
 		},
-		"style": {
+		"style":{
 			"type": "object",
-			"default": {
-				"color": {
-					"background": "#f03"
+			"default":{
+				"color":{
+					"background":"#f03"
 				},
-				"spacing": {
-					"padding": {"top":"50px","right":"50px","bottom":"50px","left":"50px"}
+				"spacing":{
+					"padding":{"top":"50px","bottom":"50px","left":"50px","right":"50px"}
 				}
+
 			}
 		}
-		
 	}
 }
