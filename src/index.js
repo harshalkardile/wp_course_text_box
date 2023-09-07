@@ -7,9 +7,13 @@ import './style.scss';
  */
 import Edit from './edit';
 import save from './save';
-import metadata from './block.json';
 
-registerBlockType( metadata.name, {
+registerBlockType( 'blocks-course/text-box', {
+	// icon:{
+	// 	src:'text-page',
+	// 	background:'#f03',
+	// 	foreground: '#fff',
+	// } ,
 	edit: Edit,
 	save,
 } );

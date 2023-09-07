@@ -1,5 +1,4 @@
 /******/ (function() { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/edit.js":
@@ -8,6 +7,7 @@
   \*********************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Edit; }
@@ -22,12 +22,124 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import {ToolbarGroup, ToolbarButton, ToolbarDropdownMenu } from '@wordpress/components'
+// import { PanelBody, TextControl, TextareaControl, ToggleControl, AnglePickerControl, ColorPicker, ColorPalette } from '@wordpress/components';
 
-function Edit() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Boilerplate – hello from the editor!', 'boilerplate'));
+function Edit(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    text,
+    alignment
+  } = attributes;
+  const onChangeAlignment = newAlignment => {
+    setAttributes({
+      alignment: newAlignment
+    });
+  };
+  const onChangeText = newText => {
+    setAttributes({
+      text: newText
+    });
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentToolbar, {
+    value: alignment,
+    onChange: onChangeAlignment
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+      className: `text-box-align-${alignment}`
+    }),
+    onChange: onChangeText,
+    value: text,
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Your Text', 'text-box'),
+    tagName: "h4",
+    allowedFormats: []
+  }));
 }
+
+//  Tried followings*********
+//  <TextControl
+// 						label="Input Label"
+// 						value={ text }
+// 						onChange={ onChangeText }
+// 						help="help text"
+// 					/>
+// 					<TextareaControl
+// 						label="Text Area Label"
+// 						value={ text }
+// 						onChange={ onChangeText }
+// 						help="help text"
+// 					/>
+// 					<ToggleControl
+// 						label="Toggle Label"
+// 						checked={ true }
+// 						onChange={ ( v ) => console.log( v ) }
+// 					/>
+// 					<AnglePickerControl />
+// 					<ColorPicker
+// 						color={ 'F03' }
+// 						onChangeComplete={ ( v ) => console.log( v ) }
+// 					/> 
+
+//  <BlockControls group="inline">
+// 				<p>Inline Controls</p>
+// 			</BlockControls>
+// 			<BlockControls group="block">
+// 				<p>Block Controls</p>
+// 			</BlockControls>
+// 			<BlockControls
+// 				group="other"
+// 				controls={ [
+// 					{
+// 						title: 'Button 1',
+// 						icon: 'admin-generic',
+// 						isActive: true,
+// 						onClick: () => console.log( 'Button 1 Clicked' ),
+// 					},
+// 					{
+// 						title: 'Button 2',
+// 						icon: 'admin-collapse',
+// 						onClick: () => console.log( 'Button 2 Clicked' ),
+// 					},
+// 				] }
+// 			>
+// 				{ text && (
+// 					<ToolbarGroup>
+// 						<ToolbarButton
+// 							title={ __( 'Align Left', 'text-box' ) }
+// 							icon="editor-alignleft"
+// 							onClick={ () => console.log( 'Align Left' ) }
+// 						/>
+// 						<ToolbarButton
+// 							title={ __( 'Align Center', 'text-box' ) }
+// 							icon="editor-aligncenter"
+// 							onClick={ () => console.log( 'Align center' ) }
+// 						/>
+// 						<ToolbarButton
+// 							title={ __( 'Align Right', 'text-box' ) }
+// 							icon="editor-alignright"
+// 							onClick={ () => console.log( 'Align Right' ) }
+// 						/>
+// 						<ToolbarDropdownMenu
+// 							icon="arrow-down-alt2"
+// 							label={ __( 'More Alignments', 'text-box' ) }
+// 							controls={ [
+// 								{
+// 									title: __( 'Wide', 'text-box' ),
+// 									icon: 'align-wide',
+// 								},
+// 								{
+// 									title: __( 'Full', 'text-box' ),
+// 									icon: 'align-full-width',
+// 								},
+// 							] }
+// 						/>
+// 					</ToolbarGroup>
+// 				) } 
+
+// 			</BlockControls>
 
 /***/ }),
 
@@ -37,13 +149,13 @@ function Edit() {
   \**********************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
 
 
 
@@ -52,8 +164,12 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('blocks-course/text-box', {
+  // icon:{
+  // 	src:'text-page',
+  // 	background:'#f03',
+  // 	foreground: '#fff',
+  // } ,
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
@@ -66,6 +182,7 @@ __webpack_require__.r(__webpack_exports__);
   \*********************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ save; }
@@ -74,29 +191,110 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
 
 
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
- *
- * @return {WPElement} Element to render.
- */
-function save() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
-  }, 'Boilerplate – hello from the saved content!');
+// eslint-disable-next-line import/no-extraneous-dependencies
+
+function save({
+  attributes
+}) {
+  const {
+    text,
+    alignment,
+    backgroundColor,
+    textColor,
+    customBackgroundColor,
+    customTextColor
+  } = attributes;
+  const backgroundClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.getColorClassName)('background-color', backgroundColor);
+  const textClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.getColorClassName)('color', textColor);
+  const classes = classnames__WEBPACK_IMPORTED_MODULE_2___default()(`text-box-align-${alignment}`, {
+    [textClass]: textClass,
+    [backgroundClass]: backgroundClass
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+      className: classes,
+      style: {
+        backgroundColor: backgroundClass ? undefined : customBackgroundColor,
+        color: textClass ? undefined : customTextColor
+      }
+    }),
+    tagName: "h4",
+    value: text
+  });
 }
+
+/***/ }),
+
+/***/ "./node_modules/classnames/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/classnames/index.js ***!
+  \******************************************/
+/***/ (function(module, exports) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+	var nativeCodeString = '[native code]';
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				if (arg.length) {
+					var inner = classNames.apply(null, arg);
+					if (inner) {
+						classes.push(inner);
+					}
+				}
+			} else if (argType === 'object') {
+				if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
+					classes.push(arg.toString());
+					continue;
+				}
+
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
 
 /***/ }),
 
@@ -106,6 +304,7 @@ function save() {
   \*************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -118,6 +317,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -130,6 +330,7 @@ __webpack_require__.r(__webpack_exports__);
   \*************************************/
 /***/ (function(module) {
 
+"use strict";
 module.exports = window["wp"]["blockEditor"];
 
 /***/ }),
@@ -140,6 +341,7 @@ module.exports = window["wp"]["blockEditor"];
   \********************************/
 /***/ (function(module) {
 
+"use strict";
 module.exports = window["wp"]["blocks"];
 
 /***/ }),
@@ -150,6 +352,7 @@ module.exports = window["wp"]["blocks"];
   \*********************************/
 /***/ (function(module) {
 
+"use strict";
 module.exports = window["wp"]["element"];
 
 /***/ }),
@@ -160,17 +363,8 @@ module.exports = window["wp"]["element"];
   \******************************/
 /***/ (function(module) {
 
+"use strict";
 module.exports = window["wp"]["i18n"];
-
-/***/ }),
-
-/***/ "./src/block.json":
-/*!************************!*\
-  !*** ./src/block.json ***!
-  \************************/
-/***/ (function(module) {
-
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/boilerplate","version":"0.1.0","title":"Boilerplate","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"textdomain":"boilerplate","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 
